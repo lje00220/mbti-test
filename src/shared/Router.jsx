@@ -6,6 +6,7 @@ import Profile from "../pages/profile/Profile";
 import Header from "../components/Header";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import TestPage from "../pages/testPage/TestPage";
 
 const PrivateRoute = ({ element: Element }) => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -26,6 +27,7 @@ const Router = () => {
         <Route path="/login" element={<PublicRoute element={Login} />} />
         <Route path="/signup" element={<PublicRoute element={SignUp} />} />
         <Route path="/profile" element={<PrivateRoute element={Profile} />} />
+        <Route path="/test" element={<PrivateRoute element={TestPage} />} />
       </Routes>
     </BrowserRouter>
   );
