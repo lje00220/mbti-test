@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../api/auth";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const [id, setId] = useState("");
@@ -18,6 +19,7 @@ const SignUp = () => {
       });
 
       if (data.success) {
+        toast.success("회원가입이 완료되었습니다!");
         navigate("/login");
       } else {
         alert("Signup failed");

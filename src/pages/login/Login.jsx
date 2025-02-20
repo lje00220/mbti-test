@@ -1,13 +1,14 @@
-import { useContext } from "react";
 import { useState } from "react";
-import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../api/auth";
+import toast from "react-hot-toast";
+import useBearsStore from "../../zustand/bearsStore";
 
 const Login = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  const { isLogin } = useContext(AuthContext);
+  const { isLogin } = useBearsStore((state) => state);
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -17,9 +18,9 @@ const Login = () => {
         id,
         password,
       });
-      console.log(data);
 
       if (data.success) {
+        toast.success("로그인 되었습니다!");
         isLogin(data.accessToken);
         navigate("/");
       } else {
