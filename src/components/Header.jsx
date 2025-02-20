@@ -3,11 +3,11 @@ import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isAuthenticated, isLogout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
+    isLogout();
     navigate("/");
   };
 
@@ -20,7 +20,7 @@ const Header = () => {
             로그아웃
           </Link>
         )}
-        <Link to="/signup">로그인</Link>
+        <Link to="/login">로그인</Link>
       </nav>
     </header>
   );
