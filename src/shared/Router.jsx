@@ -4,17 +4,17 @@ import Login from "../pages/login/Login";
 import SignUp from "../pages/signup/SignUp";
 import Profile from "../pages/profile/Profile";
 import Header from "../components/Header";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 import TestPage from "../pages/testPage/TestPage";
+import useBearsStore from "../zustand/bearsStore";
+import ResultPage from "../pages/resultPage/ResultPage";
 
 const PrivateRoute = ({ element: Element }) => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated } = useBearsStore((state) => state);
   return isAuthenticated ? <Element /> : <Navigate to="/login" />;
 };
 
 const PublicRoute = ({ element: Element }) => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated } = useBearsStore((state) => state);
   return !isAuthenticated ? <Element /> : <Navigate to="/" />;
 };
 
@@ -28,6 +28,7 @@ const Router = () => {
         <Route path="/signup" element={<PublicRoute element={SignUp} />} />
         <Route path="/profile" element={<PrivateRoute element={Profile} />} />
         <Route path="/test" element={<PrivateRoute element={TestPage} />} />
+        <Route path="/result" element={<PrivateRoute element={ResultPage} />} />
       </Routes>
     </BrowserRouter>
   );
