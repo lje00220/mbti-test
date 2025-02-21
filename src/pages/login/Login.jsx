@@ -9,7 +9,9 @@ import UserInput from "../../components/userInput";
 const Login = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  const { isLogin } = useBearsStore((state) => state);
+  const { isLogin, changeNickname, setUserId } = useBearsStore(
+    (state) => state,
+  );
 
   const navigate = useNavigate();
 
@@ -25,6 +27,9 @@ const Login = () => {
       if (data.success) {
         toast.success("로그인 되었습니다!");
         isLogin(data.accessToken);
+        changeNickname(data.nickname);
+        setUserId(data.userId);
+
         navigate("/");
       } else {
         alert("로그인 실패");

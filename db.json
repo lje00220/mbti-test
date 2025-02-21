@@ -1,3 +1,84 @@
 {
-  "testResults": []
+  "testResults": [
+    {
+      "id": "e93c",
+      "nickname": "말짱도루묵",
+      "result": "ISTJ",
+      "visibility": true,
+      "date": 1740135995927,
+      "userId": "tset111"
+    },
+    {
+      "id": "aff0",
+      "nickname": "하이루",
+      "result": "ISTJ",
+      "visibility": true,
+      "date": 1740136070427,
+      "userId": "tset112"
+    },
+    {
+      "id": "cb4a",
+      "nickname": "하이루",
+      "result": null,
+      "visibility": true,
+      "date": 1740136696858,
+      "userId": "tset112"
+    },
+    {
+      "id": "45a2",
+      "nickname": "하이루",
+      "result": null,
+      "visibility": true,
+      "date": 1740136696862,
+      "userId": "tset112"
+    },
+    {
+      "id": "9a12",
+      "nickname": "하이루",
+      "result": null,
+      "visibility": true,
+      "date": 1740136703876,
+      "userId": "tset112"
+    },
+    {
+      "id": "2861",
+      "nickname": "하이루",
+      "result": null,
+      "visibility": true,
+      "date": 1740136703877,
+      "userId": "tset112"
+    },
+    {
+      "id": "112d",
+      "nickname": "하이루",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": 1740136728032,
+      "userId": "tset112"
+    },
+    {
+      "id": "0ca4",
+      "nickname": "하이루",
+      "result": "ISTP",
+      "visibility": true,
+      "date": 1740136924878,
+      "userId": "tset112"
+    },
+    {
+      "id": "1a7a",
+      "nickname": "하이루",
+      "result": "INFP",
+      "visibility": true,
+      "date": 1740137250548,
+      "userId": "tset112"
+    },
+    {
+      "id": "f8ea",
+      "nickname": "하이루",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": 1740137545559,
+      "userId": "tset112"
+    }
+  ]
 }

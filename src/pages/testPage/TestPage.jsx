@@ -1,20 +1,40 @@
 import { useState } from "react";
-// import { createTestResult } from "../api/testResults";
 import { useNavigate } from "react-router-dom";
 import TestForm from "../../components/TestForm";
 import { calculateMBTI, mbtiDescriptions } from "../../utils/mbtiCalculator";
+import { createTestResult } from "../../api/testResults";
+import useBearsStore from "../../zustand/bearsStore";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
-//user 프롭스로 받기
 const TestPage = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
+  const { nickname, userId } = useBearsStore((state) => state);
+  const queryClient = useQueryClient();
 
   const handleTestSubmit = (answers) => {
     const mbtiResult = calculateMBTI(answers);
-    console.log("mbtiResult", mbtiResult);
     setResult(mbtiResult);
-    /* Test 결과는 mbtiResult 라는 변수에 저장이 됩니다. 이 데이터를 어떻게 API 를 이용해 처리 할 지 고민해주세요. */
+
+    const newObj = {
+      nickname: nickname,
+      result: mbtiResult,
+      visibility: true,
+      date: Date.now(),
+      userId: userId,
+    };
+
+    mutate(newObj);
   };
+
+  const { mutate } = useMutation({
+    mutationFn: createTestResult,
+    onSuccess: () => {
+      toast.success("데이터 삽입 성공");
+      queryClient.invalidateQueries(["testResults"]);
+    },
+  });
 
   const handleNavigateToResults = () => {
     navigate("/results");

@@ -7,7 +7,10 @@ export const getTestResults = async () => {
   return response.data;
 };
 
-// export const createTestResult = async (resultData) => {};
+export const createTestResult = async (resultData) => {
+  const response = await axios.post(API_URL, resultData);
+  return response.data;
+};
 
 // export const deleteTestResult = async (id) => {};
 
