@@ -1,11 +1,12 @@
-import { AuthProvider } from "./context/AuthContext";
+import { Toaster } from "react-hot-toast";
 import Router from "./shared/Router";
 
 function App() {
   return (
-    <AuthProvider>
+    <>
       <Router />
-    </AuthProvider>
+      <Toaster />
+    </>
   );
 }
 
