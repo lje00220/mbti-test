@@ -9,13 +9,13 @@ import useBearsStore from "../zustand/bearsStore";
 import ResultPage from "../pages/resultPage/ResultPage";
 
 const PrivateRoute = ({ element: Element }) => {
-  const { isAuthenticated } = useBearsStore((state) => state);
-  return isAuthenticated ? <Element /> : <Navigate to="/login" />;
+  const { accessToken } = useBearsStore((state) => state);
+  return accessToken ? <Element /> : <Navigate to="/" />;
 };
 
 const PublicRoute = ({ element: Element }) => {
-  const { isAuthenticated } = useBearsStore((state) => state);
-  return !isAuthenticated ? <Element /> : <Navigate to="/" />;
+  const { accessToken } = useBearsStore((state) => state);
+  return !accessToken ? <Element /> : <Navigate to="/" />;
 };
 
 const Router = () => {

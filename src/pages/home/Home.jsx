@@ -1,7 +1,22 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Box from "../../components/Box";
+import useBearsStore from "../../zustand/bearsStore";
+import toast from "react-hot-toast";
 
 const Home = () => {
+  const { accessToken } = useBearsStore((state) => state);
+  const navigate = useNavigate();
+
+  const handleMovePage = () => {
+    if (accessToken) {
+      navigate("/test");
+    } else {
+      toast.error(`로그인이 필요합니다! 
+        로그인 페이지로 이동합니다.`);
+      setTimeout(() => navigate("/login"), 1000);
+    }
+  };
+
   return (
     <div className="mt-1 flex h-screen flex-col items-center justify-start bg-[#f3f4f6] p-5">
       <h1 className="mb-5 mt-5 text-5xl font-bold text-[#484848]">
@@ -32,12 +47,12 @@ const Home = () => {
           </p>
         </Box>
       </div>
-      <Link
-        to="/test"
+      <button
+        onClick={handleMovePage}
         className="rounded-2xl bg-[#ff5a5f] px-5 py-2 text-white"
       >
         내 성격 알아보러 가기
-      </Link>
+      </button>
     </div>
   );
 };

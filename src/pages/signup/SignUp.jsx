@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { register } from "../../api/auth";
 import toast from "react-hot-toast";
+import InputForm from "../../components/InputForm";
+import UserInput from "../../components/userInput";
 
 const SignUp = () => {
   const [id, setId] = useState("");
@@ -19,7 +21,7 @@ const SignUp = () => {
       });
 
       if (data.success) {
-        toast.success("회원가입이 완료되었습니다!");
+        toast.success("회원가입이 완료되었습니다! 로그인해주세요.");
         navigate("/login");
       } else {
         alert("Signup failed");
@@ -32,40 +34,35 @@ const SignUp = () => {
   };
 
   return (
-    <div className="m-10 flex flex-col items-center justify-center bg-slate-400 p-8">
-      <h2 className="text-2xl">회원가입</h2>
-      <form
-        className="mt-5 flex flex-col items-center gap-5"
-        onSubmit={handleSignUp}
-      >
-        <label className="">
-          아이디:{" "}
-          <input
-            type="text"
+    <div className="mt-1 flex h-screen w-full flex-col items-center bg-[#f3f4f6]">
+      <div className="mt-10 flex w-1/3 flex-col items-center rounded-md bg-white p-6 shadow-lg">
+        <InputForm type="회원가입" onSubmit={handleSignUp}>
+          <UserInput
             value={id}
-            onChange={(e) => setId(e.target.value)}
-          />
-        </label>
-        <label>
-          비밀번호:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <label>
-          닉네임:
-          <input
+            setValue={setId}
             type="text"
-            value={nickname}
-            onChange={(e) => setNickname(e.target.value)}
+            placeholder="아이디"
           />
-        </label>
-        <button className="rounded-sm bg-amber-200 p-2" type="submit">
-          회원가입하기
-        </button>
-      </form>
+          <UserInput
+            value={password}
+            setValue={setPassword}
+            type="password"
+            placeholder="비밀번호"
+          />
+          <UserInput
+            value={nickname}
+            setValue={setNickname}
+            type="text"
+            placeholder="닉네임"
+          />
+        </InputForm>
+        <div className="flex flex-row items-center">
+          <span className="mx-2 my-3">이미 계정이 있으신가요?</span>
+          <Link to="/login" className="text-[#ff5a5f]">
+            로그인
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
