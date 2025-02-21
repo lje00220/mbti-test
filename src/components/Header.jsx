@@ -3,13 +3,11 @@ import toast from "react-hot-toast";
 import useBearsStore from "../zustand/bearsStore";
 
 const Header = () => {
-  const { isAuthenticated, isLogout } = useBearsStore((state) => state);
-  const a = useBearsStore((state) => state);
+  const { accessToken, isLogout } = useBearsStore((state) => state);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     toast.success("로그아웃 되었습니다!");
-    console.log("logout", a);
     isLogout();
     navigate("/");
   };
@@ -20,7 +18,7 @@ const Header = () => {
         <p className="ml-10 text-xl">홈</p>
       </Link>
       <nav className="flex gap-5">
-        {isAuthenticated ? (
+        {!!accessToken === true ? (
           <div className="mr-5 flex flex-row items-center justify-end gap-5">
             <Link to="/profile" className="hover:text-white">
               프로필

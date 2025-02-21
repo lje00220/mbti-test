@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../api/auth";
 import toast from "react-hot-toast";
 import useBearsStore from "../../zustand/bearsStore";
+import InputForm from "../../components/Form";
+import UserInput from "../../components/userInput";
 
 const Login = () => {
   const [id, setId] = useState("");
@@ -18,6 +20,7 @@ const Login = () => {
         id,
         password,
       });
+      console.log(data);
 
       if (data.success) {
         toast.success("로그인 되었습니다!");
@@ -33,32 +36,29 @@ const Login = () => {
   };
 
   return (
-    <div className="m-10 flex flex-col items-center justify-center bg-slate-400 p-8">
-      <h2 className="text-2xl">로그인</h2>
-      <form
-        className="mt-5 flex flex-col items-center gap-5"
-        onSubmit={handleLogin}
-      >
-        <label>
-          아이디:
-          <input
-            type="text"
+    <div className="mt-1 flex h-screen w-full flex-col items-center bg-[#f3f4f6]">
+      <div className="mt-10 flex w-1/3 flex-col items-center rounded-md bg-white p-6 shadow-lg">
+        <InputForm type="로그인" onSubmit={handleLogin}>
+          <UserInput
             value={id}
-            onChange={(e) => setId(e.target.value)}
+            setValue={setId}
+            type="text"
+            placeholder="아이디"
           />
-        </label>
-        <label>
-          비밀번호:
-          <input
-            type="password"
+          <UserInput
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            setValue={setPassword}
+            type="password"
+            placeholder="비밀번호"
           />
-        </label>
-        <button className="rounded-sm bg-amber-200 p-2" type="submit">
-          로그인하기
-        </button>
-      </form>
+        </InputForm>
+        <div className="flex flex-row items-center">
+          <span className="mx-2 my-3">계정이 없으신가요?</span>
+          <Link to="/signup" className="text-[#ff5a5f]">
+            회원가입
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

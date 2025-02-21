@@ -4,11 +4,10 @@ import { persist } from "zustand/middleware";
 const useBearsStore = create(
   persist(
     (set) => ({
-      isAuthenticated: false,
-      accessToken: "",
+      accessToken: null,
 
-      isLogin: (token) => set({ isAuthenticated: true, accessToken: token }),
-      isLogout: () => set({ isAuthenticated: false, accessToken: "" }),
+      isLogin: (token) => set({ accessToken: token }),
+      isLogout: () => set({ accessToken: null }),
     }),
     {
       name: "accessToken",
