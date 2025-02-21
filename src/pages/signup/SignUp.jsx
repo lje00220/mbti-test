@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { register } from "../../api/auth";
 import toast from "react-hot-toast";
-import InputForm from "../../components/Form";
+import InputForm from "../../components/InputForm";
 import UserInput from "../../components/userInput";
 
 const SignUp = () => {

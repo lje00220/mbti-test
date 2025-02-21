@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../api/auth";
 import toast from "react-hot-toast";
 import useBearsStore from "../../zustand/bearsStore";
-import InputForm from "../../components/Form";
+import InputForm from "../../components/InputForm";
 import UserInput from "../../components/userInput";
 
 const Login = () => {
