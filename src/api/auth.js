@@ -14,6 +14,7 @@ export const login = async (userData) => {
 
 // };
 
-// export const updateProfile = async (formData) => {
-
-// };
+export const updateProfile = async (formData, header) => {
+  const response = await instance.patch("/profile", formData, header);
+  return response.data;
+};
