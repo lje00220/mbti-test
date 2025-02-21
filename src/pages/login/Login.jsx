@@ -36,30 +36,21 @@ const Login = () => {
   };
 
   return (
-    <div className="mt-1 flex h-screen w-full flex-col items-center bg-[#f3f4f6]">
-      <div className="mt-10 flex w-1/3 flex-col items-center rounded-md bg-white p-6 shadow-lg">
-        <InputForm type="로그인" onSubmit={handleLogin}>
-          <UserInput
-            value={id}
-            setValue={setId}
-            type="text"
-            placeholder="아이디"
-          />
-          <UserInput
-            value={password}
-            setValue={setPassword}
-            type="password"
-            placeholder="비밀번호"
-          />
-        </InputForm>
-        <div className="flex flex-row items-center">
-          <span className="mx-2 my-3">계정이 없으신가요?</span>
-          <Link to="/signup" className="text-[#ff5a5f]">
-            회원가입
-          </Link>
-        </div>
+    <InputForm type="로그인" onSubmit={handleLogin}>
+      <UserInput value={id} setValue={setId} placeholder="아이디" />
+      <UserInput
+        value={password}
+        setValue={setPassword}
+        type="password"
+        placeholder="비밀번호"
+      />
+      <div className="flex flex-row items-center">
+        <span className="mx-2 my-3">계정이 없으신가요?</span>
+        <Link to="/signup" className="text-[#ff5a5f]">
+          회원가입
+        </Link>
       </div>
-    </div>
+    </InputForm>
   );
 };
 

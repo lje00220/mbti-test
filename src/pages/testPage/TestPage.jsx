@@ -21,8 +21,8 @@ const TestPage = () => {
   };
 
   return (
-    <div className="mt-1 flex h-screen w-full flex-col items-center justify-center bg-[#f3f4f6]">
-      <div className="h-2/5 w-full max-w-lg rounded-lg bg-white p-8">
+    <div className="mt-1 flex w-full flex-col items-center justify-center bg-[#f3f4f6]">
+      <div className="my-5 h-2/5 w-full max-w-lg overflow-hidden rounded-lg bg-white p-8">
         {!result ? (
           <>
             <h1 className="text-primary-color mb-6 text-3xl font-bold">

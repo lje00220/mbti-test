@@ -1,4 +1,4 @@
-const UserInput = ({ value, setValue, placeholder, type }) => {
+const UserInput = ({ value, setValue, placeholder, type = "text", id }) => {
   return (
     <input
       className="w-full rounded-md p-3"
@@ -6,6 +6,7 @@ const UserInput = ({ value, setValue, placeholder, type }) => {
       onChange={(e) => setValue(e.target.value)}
       type={type}
       placeholder={placeholder}
+      id={id}
     />
   );
 };
