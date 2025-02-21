@@ -9,8 +9,10 @@ const TestPage = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
 
-  const handleTestSubmit = async (answers) => {
+  const handleTestSubmit = (answers) => {
     const mbtiResult = calculateMBTI(answers);
+    console.log("mbtiResult", mbtiResult);
+    setResult(mbtiResult);
     /* Test 결과는 mbtiResult 라는 변수에 저장이 됩니다. 이 데이터를 어떻게 API 를 이용해 처리 할 지 고민해주세요. */
   };
 
@@ -19,8 +21,8 @@ const TestPage = () => {
   };
 
   return (
-    <div className="mt-1 flex w-full flex-col items-center justify-center bg-[#f3f4f6]">
-      <div className="mt-2 h-full w-full max-w-lg overflow-y-auto rounded-lg bg-white p-8">
+    <div className="mt-1 flex h-screen w-full flex-col items-center justify-center bg-[#f3f4f6]">
+      <div className="h-2/5 w-full max-w-lg rounded-lg bg-white p-8">
         {!result ? (
           <>
             <h1 className="text-primary-color mb-6 text-3xl font-bold">
