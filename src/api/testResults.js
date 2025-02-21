@@ -7,8 +7,8 @@ export const getTestResults = async () => {
   return response.data;
 };
 
-export const createTestResult = async (resultData) => {};
+// export const createTestResult = async (resultData) => {};
 
-export const deleteTestResult = async (id) => {};
+// export const deleteTestResult = async (id) => {};
 
-export const updateTestResultVisibility = async (id, visibility) => {};
+// export const updateTestResultVisibility = async (id, visibility) => {};
