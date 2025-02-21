@@ -3,8 +3,8 @@ import Box from "../../components/Box";
 
 const Home = () => {
   return (
-    <div className="mt-1 flex h-screen flex-col items-center justify-center bg-[#f3f4f6] p-5">
-      <h1 className="mb-5 mt-2 text-5xl font-bold text-[#484848]">
+    <div className="mt-1 flex h-screen flex-col items-center justify-start bg-[#f3f4f6] p-5">
+      <h1 className="mb-5 mt-5 text-5xl font-bold text-[#484848]">
         무료 성격 테스트
       </h1>
       <p className="my-5 text-lg text-[#484848]">
