@@ -37,7 +37,7 @@ const TestPage = () => {
   });
 
   const handleNavigateToResults = () => {
-    navigate("/results");
+    navigate("/result");
   };
 
   return (

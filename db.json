@@ -12,7 +12,7 @@
       "id": "aff0",
       "nickname": "하이루",
       "result": "ISTJ",
-      "visibility": true,
+      "visibility": false,
       "date": 1740136070427,
       "userId": "tset112"
     },
@@ -25,12 +25,12 @@
       "userId": "tset112"
     },
     {
-      "id": "1a7a",
-      "nickname": "하이루",
-      "result": "INFP",
-      "visibility": true,
-      "date": 1740137250548,
-      "userId": "tset112"
+      "id": "3577",
+      "nickname": "할로",
+      "result": "ESFP",
+      "visibility": false,
+      "date": 1740304297717,
+      "userId": "tset113"
     }
   ]
 }
