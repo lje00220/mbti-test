@@ -28,10 +28,7 @@ const Router = () => {
         <Route path="/signup" element={<PublicRoute element={SignUp} />} />
         <Route path="/profile" element={<PrivateRoute element={Profile} />} />
         <Route path="/test" element={<PrivateRoute element={TestPage} />} />
-        <Route
-          path="/results"
-          element={<PrivateRoute element={ResultPage} />}
-        />
+        <Route path="/result" element={<PrivateRoute element={ResultPage} />} />
       </Routes>
     </BrowserRouter>
   );
