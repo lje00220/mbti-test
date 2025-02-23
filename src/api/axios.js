@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://ec2-13-125-245-21.ap-northeast-2.compute.amazonaws.com:4000",
+  baseURL: import.meta.env.VITE_NBC_SERVER,
 });
 
 instance.interceptors.request.use(
