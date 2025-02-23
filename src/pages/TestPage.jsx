@@ -31,14 +31,14 @@ const TestPage = () => {
   const { mutate } = useMutation({
     mutationFn: createTestResult,
     onSuccess: () => {
-      toast.success("데이터 삽입 성공");
+      toast.success("테스트 결과가 저장되었습니다!");
       queryClient.invalidateQueries(["testResults"]);
     },
   });
 
   return (
     <div className="mt-1 flex w-full flex-col items-center justify-center bg-[#f3f4f6]">
-      <div className="my-5 h-2/5 w-full max-w-lg overflow-hidden rounded-lg bg-white p-8">
+      <div className="my-5 h-2/5 w-full max-w-lg overflow-hidden rounded-lg bg-[#ffffff] p-8">
         {!result ? (
           <>
             <h1 className="text-primary-color mb-6 text-3xl font-bold">
@@ -51,7 +51,7 @@ const TestPage = () => {
             <h1 className="text-primary-color mb-6 text-3xl font-bold">
               테스트 결과: {result}
             </h1>
-            <p className="mb-6 text-lg text-gray-700">
+            <p className="text-gray-700 mb-6 text-lg">
               {mbtiDescriptions[result] ||
                 "해당 성격 유형에 대한 설명이 없습니다."}
             </p>

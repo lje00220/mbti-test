@@ -33,7 +33,6 @@ const Profile = () => {
   return (
     <InputForm type="프로필 업데이트" onSubmit={handleSubmit}>
       <label htmlFor="nickname">닉네임</label>
-      <div></div>
       <UserInput
         value={changedProfile}
         setValue={setChangedProfile}
