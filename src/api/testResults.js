@@ -5,12 +5,12 @@ const api = axios.create({
 });
 
 export const getTestResults = async () => {
-  const response = await api.get();
+  const response = await api.get("/");
   return response.data;
 };
 
 export const createTestResult = async (resultData) => {
-  const response = await api.post(resultData);
+  const response = await api.post("/", resultData);
   return response.data;
 };
 

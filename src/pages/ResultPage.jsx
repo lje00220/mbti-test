@@ -50,11 +50,17 @@ const ResultPage = () => {
   };
 
   if (isPending) {
-    return <div>로딩중입니다...</div>;
+    return (
+      <div className="flex items-center justify-center">로딩중입니다...</div>
+    );
   }
 
   if (isError) {
-    return <div>데이터 조회 중 오류가 발생했습니다.</div>;
+    return (
+      <div className="flex items-center justify-center">
+        데이터 조회 중 오류가 발생했습니다.
+      </div>
+    );
   }
 
   return (

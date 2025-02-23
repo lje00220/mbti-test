@@ -21,7 +21,7 @@ const TestPage = () => {
       nickname: nickname,
       result: mbtiResult,
       visibility: true,
-      date: Date.now(),
+      date: new Date().toLocaleDateString("ko-KR"),
       userId: userId,
     };
 
