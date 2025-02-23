@@ -18,7 +18,10 @@ const TestForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 rounded-lg bg-white p-6">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-6 rounded-lg bg-[#ffffff] p-6"
+    >
       {questions.map((q, index) => (
         <div key={q.id} className="mb-6">
           <p className="mb-3 text-lg font-semibold">{q.question}</p>
@@ -28,8 +31,8 @@ const TestForm = ({ onSubmit }) => {
                 <label
                   key={i}
                   className={`block cursor-pointer rounded-lg border p-3 transition-colors duration-300 ${
-                    answers[index]?.answer === option ? "bg-gray-100" : ""
-                  } hover:bg-gray-100`}
+                    answers[index]?.answer === option ? "bg-[#ffffff]" : ""
+                  } hover:border-[#F9A8D4] hover:bg-[#FCE7F3]`}
                 >
                   <input
                     type="radio"
