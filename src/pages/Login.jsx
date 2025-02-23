@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../api/auth";
+import { login } from "../api/auth";
 import toast from "react-hot-toast";
-import useBearsStore from "../../zustand/bearsStore";
-import InputForm from "../../components/InputForm";
-import UserInput from "../../components/userInput";
+import useBearsStore from "../zustand/bearsStore";
+import InputForm from "../components/InputForm";
+import UserInput from "../components/userInput";
 
 const Login = () => {
   const [id, setId] = useState("");
@@ -22,7 +22,6 @@ const Login = () => {
         id,
         password,
       });
-      console.log(data);
 
       if (data.success) {
         toast.success("로그인 되었습니다!");
@@ -31,12 +30,10 @@ const Login = () => {
         setUserId(data.userId);
 
         navigate("/");
-      } else {
-        alert("로그인 실패");
-        throw Error;
       }
     } catch (error) {
-      console.error("Login error: ", error);
+      toast.error("입력한 아이디가 존재하지 않거나 비밀번호가 잘못되었습니다.");
+      console.error(error.message);
     }
   };
 
@@ -51,7 +48,7 @@ const Login = () => {
       />
       <div className="flex flex-row items-center">
         <span className="mx-2 my-3">계정이 없으신가요?</span>
-        <Link to="/signup" className="text-[#ff5a5f]">
+        <Link to="/signup" className="text-pink">
           회원가입
         </Link>
       </div>

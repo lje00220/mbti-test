@@ -37,7 +37,7 @@ const TestForm = ({ onSubmit }) => {
                     value={option}
                     checked={answers[index]?.answer === option}
                     onChange={() => handleChange(index, option)}
-                    className="text-primary-color mr-2"
+                    className="mr-2 text-black"
                   />
                   {option}
                 </label>
@@ -46,10 +46,7 @@ const TestForm = ({ onSubmit }) => {
           </div>
         </div>
       ))}
-      <button
-        type="submit"
-        className="w-full rounded-lg bg-[#FF5A5F] py-3 font-semibold text-white transition duration-300 hover:bg-white hover:text-[#FF5A5F]"
-      >
+      <button type="submit" className="pinkBtn w-full">
         제출하기
       </button>
     </form>
