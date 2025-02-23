@@ -50,16 +50,24 @@ const ResultPage = () => {
   };
 
   if (isPending) {
-    return <div>로딩중입니다...</div>;
+    return (
+      <div className="bg-bg_color mt-1 flex h-screen items-center justify-center text-3xl">
+        로딩중입니다...
+      </div>
+    );
   }
 
   if (isError) {
-    return <div>데이터 조회 중 오류가 발생했습니다.</div>;
+    return (
+      <div className="bg-bg_color mt-1 flex h-screen items-center justify-center text-3xl">
+        데이터 조회 중 오류가 발생했습니다.
+      </div>
+    );
   }
 
   return (
-    <div className="mt-1 flex flex-col items-center justify-start bg-[#f3f4f6] p-5">
-      <div className="flex w-2/3 flex-col items-center justify-center rounded-md bg-white">
+    <div className="bg-bg_color mt-1 flex h-screen flex-col items-center justify-start p-5">
+      <div className="flex w-2/3 flex-col items-center justify-center rounded-md bg-[#ffffff] py-8">
         <h1 className="my-8 text-4xl font-semibold">모든 테스트 결과</h1>
         {results
           ? results.map(

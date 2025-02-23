@@ -4,12 +4,17 @@ import { register } from "../api/auth";
 import toast from "react-hot-toast";
 import InputForm from "../components/InputForm";
 import UserInput from "../components/UserInput";
+import { useMutation } from "@tanstack/react-query";
 
 const SignUp = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const navigate = useNavigate();
+
+  const { mutateAsync } = useMutation({
+    mutationFn: register,
+  });
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -29,7 +34,7 @@ const SignUp = () => {
     }
 
     try {
-      const data = await register({
+      const data = await mutateAsync({
         id,
         password,
         nickname,
