@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InputForm from "../components/InputForm";
-import UserInput from "../components/userInput";
+import UserInput from "../components/UserInput";
 import { updateProfile } from "../api/auth";
 import useBearsStore from "../zustand/bearsStore";
 import toast from "react-hot-toast";
