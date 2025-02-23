@@ -58,7 +58,7 @@ const TestPage = () => {
             <Link to="/result" className="pinkBtn flex justify-center">
               결과 페이지로 이동하기
             </Link>
-            <KakaoShare></KakaoShare>
+            <KakaoShare />
           </>
         )}
       </div>
