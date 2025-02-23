@@ -6,6 +6,7 @@ import { createTestResult } from "../api/testResults";
 import useBearsStore from "../zustand/bearsStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import KakaoShare from "../components/KakaoShare";
 
 const TestPage = () => {
   const [result, setResult] = useState(null);
@@ -57,6 +58,7 @@ const TestPage = () => {
             <Link to="/result" className="pinkBtn flex justify-center">
               결과 페이지로 이동하기
             </Link>
+            <KakaoShare></KakaoShare>
           </>
         )}
       </div>
