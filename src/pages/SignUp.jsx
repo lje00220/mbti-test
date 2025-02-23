@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { register } from "../api/auth";
 import toast from "react-hot-toast";
 import InputForm from "../components/InputForm";
-import UserInput from "../components/userInput";
+import UserInput from "../components/UserInput";
 
 const SignUp = () => {
   const [id, setId] = useState("");
