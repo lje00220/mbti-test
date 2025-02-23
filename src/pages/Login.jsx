@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import useBearsStore from "../zustand/bearsStore";
 import InputForm from "../components/InputForm";
 import UserInput from "../components/UserInput";
+import { useMutation } from "@tanstack/react-query";
 
 const Login = () => {
   const [id, setId] = useState("");
@@ -15,10 +16,14 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const { mutateAsync } = useMutation({
+    mutationFn: login,
+  });
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const data = await login({
+      const data = await mutateAsync({
         id,
         password,
       });

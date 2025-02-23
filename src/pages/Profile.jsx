@@ -4,15 +4,23 @@ import UserInput from "../components/UserInput";
 import { updateProfile } from "../api/auth";
 import useBearsStore from "../zustand/bearsStore";
 import toast from "react-hot-toast";
+import { useMutation } from "@tanstack/react-query";
 
 const Profile = () => {
   const [changedProfile, setChangedProfile] = useState("");
   const { accessToken } = useBearsStore((state) => state);
 
+  const { mutateAsync } = useMutation({
+    mutationFn: updateProfile,
+    onSuccess: () => {
+      toast.success("닉네임이 수정되었습니다!");
+    },
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await updateProfile(
+      const data = [
         {
           nickname: changedProfile,
         },
@@ -22,10 +30,8 @@ const Profile = () => {
             Authorization: `Bearer ${accessToken}`,
           },
         },
-      );
-      if (data.success) {
-        toast.success("닉네임이 변경되었습니다!");
-      }
+      ];
+      await mutateAsync(data);
     } catch (error) {
       console.error(error.message);
     }
