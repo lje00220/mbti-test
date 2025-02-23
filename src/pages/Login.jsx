@@ -15,14 +15,13 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const data = login({
+      const data = await login({
         id,
         password,
       });
-      console.log(data);
 
       if (data.success) {
         toast.success("로그인 되었습니다!");
