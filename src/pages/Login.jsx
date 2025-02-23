@@ -4,7 +4,7 @@ import { login } from "../api/auth";
 import toast from "react-hot-toast";
 import useBearsStore from "../zustand/bearsStore";
 import InputForm from "../components/InputForm";
-import UserInput from "../components/userInput";
+import UserInput from "../components/UserInput";
 
 const Login = () => {
   const [id, setId] = useState("");
