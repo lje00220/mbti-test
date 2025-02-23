@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pinkBtn {
+  @apply bg-pink transform rounded-xl px-5 py-2 text-white transition duration-200;
+}
+
+.pinkBtn:hover {
+  @apply text-pink scale-105 bg-white;
+}
+
+.headerText {
+  @apply text-pink transform transition duration-200;
+}
+
+.headerText:hover {
+  @apply text-grey scale-105;
+}

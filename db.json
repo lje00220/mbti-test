@@ -31,6 +31,30 @@
       "visibility": false,
       "date": 1740304297717,
       "userId": "tset113"
+    },
+    {
+      "id": "4dd5",
+      "nickname": "할로",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": 1740305050320,
+      "userId": "tset113"
+    },
+    {
+      "id": "6b96",
+      "nickname": "할로",
+      "result": "INFP",
+      "visibility": true,
+      "date": 1740305174034,
+      "userId": "tset113"
+    },
+    {
+      "id": "103c",
+      "nickname": "할로",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": 1740308900013,
+      "userId": "tset113"
     }
   ]
 }

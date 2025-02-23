@@ -3,9 +3,9 @@ import {
   deleteTestResult,
   getTestResults,
   updateTestResultVisibility,
-} from "../../api/testResults";
-import { mbtiDescriptions } from "../../utils/mbtiCalculator";
-import useBearsStore from "../../zustand/bearsStore";
+} from "../api/testResults";
+import { mbtiDescriptions } from "../utils/mbtiCalculator";
+import useBearsStore from "../zustand/bearsStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
@@ -32,7 +32,7 @@ const ResultPage = () => {
   const { mutate: changeMutate } = useMutation({
     mutationFn: updateTestResultVisibility,
     onSuccess: () => {
-      toast.success("전환 성공!");
+      toast.success("공개 여부를 변경했습니다!");
       queryClient.invalidateQueries(["testResults"]);
     },
   });
@@ -57,8 +57,6 @@ const ResultPage = () => {
     return <div>데이터 조회 중 오류가 발생했습니다.</div>;
   }
 
-  console.log(results);
-
   return (
     <div className="mt-1 flex flex-col items-center justify-start bg-[#f3f4f6] p-5">
       <div className="flex w-2/3 flex-col items-center justify-center rounded-md bg-white">
@@ -80,7 +78,7 @@ const ResultPage = () => {
                 <p className="text-[#a9aaaa]">
                   {mbtiDescriptions[result.result]}
                 </p>
-                {userId === result.userId ? (
+                {userId === result.userId && (
                   <div className="my-2 flex justify-end gap-3">
                     <button
                       onClick={() =>
@@ -97,8 +95,6 @@ const ResultPage = () => {
                       삭제
                     </button>
                   </div>
-                ) : (
-                  ""
                 )}
               </div>
             ),

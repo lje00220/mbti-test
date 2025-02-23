@@ -13,33 +13,30 @@ const Header = () => {
   };
 
   return (
-    <header className="flex items-center justify-between bg-[#f3f4f6] p-5 text-[#ff5a5f] shadow-md">
+    <header className="bg-bg_color flex items-center justify-between p-5 shadow-md">
       <Link to="/">
-        <p className="ml-10 text-xl">홈</p>
+        <p className="headerText mx-4 text-xl">홈</p>
       </Link>
       <nav className="flex gap-5">
-        {!!accessToken === true ? (
+        {accessToken ? (
           <div className="mr-5 flex flex-row items-center justify-end gap-5">
-            <Link to="/profile" className="hover:text-white">
+            <Link to="/profile" className="headerText">
               프로필
             </Link>
-            <Link to="/test" className="hover:text-white">
+            <Link to="/test" className="headerText">
               테스트
             </Link>
-            <Link to="/result" className="hover:text-white">
+            <Link to="/result" className="headerText">
               결과 보기
             </Link>
             <Link to="/">
-              <button
-                onClick={handleLogout}
-                className="rounded-xl bg-[#ff5a5f] px-5 py-3 text-white hover:bg-[#f3f4f6] hover:text-[#ff5a5f]"
-              >
+              <button onClick={handleLogout} className="pinkBtn">
                 로그아웃
               </button>
             </Link>
           </div>
         ) : (
-          <Link to="/login" className="mr-5">
+          <Link to="/login" className="headerText mr-5">
             로그인
           </Link>
         )}
