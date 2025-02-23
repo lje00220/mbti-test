@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 
 const Profile = () => {
   const [changedProfile, setChangedProfile] = useState("");
-  const { accessToken } = useBearsStore((state) => state);
+  const { changeNickname } = useBearsStore((state) => state);
 
   const { mutateAsync } = useMutation({
     mutationFn: updateProfile,
@@ -20,18 +20,11 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = [
-        {
-          nickname: changedProfile,
-        },
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${accessToken}`,
-          },
-        },
-      ];
-      await mutateAsync(data);
+      await mutateAsync({
+        nickname: changedProfile,
+      });
+
+      changeNickname(changedProfile);
     } catch (error) {
       console.error(error.message);
     }
@@ -40,6 +33,7 @@ const Profile = () => {
   return (
     <InputForm type="프로필 업데이트" onSubmit={handleSubmit}>
       <label htmlFor="nickname">닉네임</label>
+      <div></div>
       <UserInput
         value={changedProfile}
         setValue={setChangedProfile}
