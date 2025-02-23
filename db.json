@@ -1,0 +1,60 @@
+{
+  "testResults": [
+    {
+      "id": "e93c",
+      "nickname": "말짱도루묵",
+      "result": "ISTJ",
+      "visibility": false,
+      "date": 1740135995927,
+      "userId": "tset111"
+    },
+    {
+      "id": "aff0",
+      "nickname": "하이루",
+      "result": "ISTJ",
+      "visibility": false,
+      "date": 1740136070427,
+      "userId": "tset112"
+    },
+    {
+      "id": "0ca4",
+      "nickname": "하이루",
+      "result": "ISTP",
+      "visibility": true,
+      "date": 1740136924878,
+      "userId": "tset112"
+    },
+    {
+      "id": "3577",
+      "nickname": "할로",
+      "result": "ESFP",
+      "visibility": false,
+      "date": 1740304297717,
+      "userId": "tset113"
+    },
+    {
+      "id": "4dd5",
+      "nickname": "할로",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": 1740305050320,
+      "userId": "tset113"
+    },
+    {
+      "id": "6b96",
+      "nickname": "할로",
+      "result": "INFP",
+      "visibility": true,
+      "date": 1740305174034,
+      "userId": "tset113"
+    },
+    {
+      "id": "103c",
+      "nickname": "할로",
+      "result": "ESTJ",
+      "visibility": true,
+      "date": 1740308900013,
+      "userId": "tset113"
+    }
+  ]
+}
