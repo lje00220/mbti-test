@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 /**
  * 테스트 결과 페이지
  *  - 다른 사람들의 테스트 결과도 함께 확인 가능
+ *  - 카카오톡 공유하기를 통해 들어온 경우 이곳으로 이동
  *
  * @returns {JSX.Element}
  */
@@ -26,6 +27,7 @@ const ResultPage = () => {
     queryFn: getTestResults,
   });
 
+  // 테스트 페이지로 이동 (공유하기를 통해 결과 페이지에 들어왔을 경우)
   const handleMoveToTest = () => {
     if (!accessToken) {
       toast.error("로그인이 필요합니다! 로그인 페이지로 이동합니다.");

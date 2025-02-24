@@ -17,6 +17,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const TestResultItem = ({ result }) => {
   const userId = useUserStore((state) => state.userId);
+  const accessToken = useUserStore((state) => state.accessToken);
   const queryClient = useQueryClient();
 
   const { mutate: deleteMutate } = useMutation({
@@ -57,7 +58,7 @@ const TestResultItem = ({ result }) => {
       </div>
       <p className="text-bold my-2 text-2xl text-yellow">{result.result}</p>
       <p className="text-grey_font">{mbtiDescriptions[result.result]}</p>
-      {userId === result.userId && (
+      {userId === result.userId && accessToken && (
         <div className="my-2 flex justify-end gap-3">
           <button
             onClick={() => handleChangeVisibility(result.id, result.visibility)}
