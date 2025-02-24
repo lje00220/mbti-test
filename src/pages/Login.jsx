@@ -10,6 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 const Login = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  // const [user, setUser] = useState({});
   const { isLogin, changeNickname, setUserId } = useBearsStore(
     (state) => state,
   );

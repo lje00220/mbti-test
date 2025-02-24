@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import useBearsStore from "../zustand/bearsStore";
 
 const Header = () => {
-  const { accessToken, isLogout } = useBearsStore((state) => state);
+  const { accessToken, isLogout, nickname } = useBearsStore((state) => state);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-bg_color flex items-center justify-between p-5 shadow-md">
+    <header className="flex items-center justify-between bg-bg_color p-5 shadow-md">
       <Link to="/">
         <p className="headerText mx-4 text-xl">홈</p>
       </Link>
@@ -21,7 +21,7 @@ const Header = () => {
         {accessToken ? (
           <div className="mr-5 flex flex-row items-center justify-end gap-5">
             <Link to="/profile" className="headerText">
-              프로필
+              {`${nickname} 님`}
             </Link>
             <Link to="/test" className="headerText">
               테스트
