@@ -22,9 +22,9 @@ const PrivateRoute = ({ element: Element }) => {
 };
 
 // 비회원도 접근 가능 (홈, 로그인, 회원가입 페이지)
-const PublicRoute = ({ element: Element }) => {
+const PublicRoute = ({ element: Element, restricted = true }) => {
   const { accessToken } = useUserStore((state) => state);
-  return !accessToken ? <Element /> : <Navigate to="/" />;
+  return restricted && accessToken ? <Navigate to="/" /> : <Element />;
 };
 
 const Router = () => {
@@ -37,7 +37,10 @@ const Router = () => {
         <Route path="/signup" element={<PublicRoute element={SignUp} />} />
         <Route path="/profile" element={<PrivateRoute element={Profile} />} />
         <Route path="/test" element={<PrivateRoute element={TestPage} />} />
-        <Route path="/result" element={<PublicRoute element={ResultPage} />} />
+        <Route
+          path="/result"
+          element={<PublicRoute element={ResultPage} restricted={false} />}
+        />
       </Routes>
     </BrowserRouter>
   );

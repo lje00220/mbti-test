@@ -2,8 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getTestResults } from "../api/testResults";
 import TestResultItem from "../components/TestResultItem";
 import useUserStore from "../zustand/userStore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Loader } from "lucide-react";
+import toast from "react-hot-toast";
 
 /**
  * 테스트 결과 페이지
@@ -14,6 +15,8 @@ import { Loader } from "lucide-react";
 
 const ResultPage = () => {
   const userId = useUserStore((state) => state.userId);
+  const accessToken = useUserStore((state) => state.accessToken);
+  const navigate = useNavigate();
   const {
     data: results,
     isPending,
@@ -22,6 +25,15 @@ const ResultPage = () => {
     queryKey: ["testResults"],
     queryFn: getTestResults,
   });
+
+  const handleMoveToTest = () => {
+    if (!accessToken) {
+      toast.error("로그인이 필요합니다! 로그인 페이지로 이동합니다.");
+      navigate("/login");
+    } else {
+      navigate("/test");
+    }
+  };
 
   // 데이터를 불러오는 중일 경우 Loader 이미지 출력
   if (isPending) {
@@ -68,6 +80,9 @@ const ResultPage = () => {
               <TestResultItem result={result} key={result.id} />
             ),
         )}
+        <button onClick={handleMoveToTest} className="pinkBtn">
+          테스트 하러 가기
+        </button>
       </div>
     </div>
   );
