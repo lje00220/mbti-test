@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { questions } from "../data/question";
+import toast from "react-hot-toast";
 
 const TestForm = ({ onSubmit }) => {
   const [answers, setAnswers] = useState(
@@ -14,6 +15,13 @@ const TestForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    for (let answer of answers) {
+      if (!answer.type) {
+        toast.error("체크되지 않은 항목이 있습니다!");
+        return;
+      }
+    }
     onSubmit(answers);
   };
 
