@@ -8,14 +8,10 @@ import useUserStore from "../zustand/userStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 /**
+ * 테스트 결과 아이템 컴포넌트
+ *  - 자신의 테스트 결과일 경우 공개 여부 변경 버튼과 삭제 버튼이 포함
  *
- * @param {Object} props.result - 하나의 테스트 결과 목록 (      
- *     "nickname": "말짱도루묵",
-      "result": "ISTP",
-      "visibility": true,
-      "date": "2025. 2. 24.",
-      "userId": "tset111",
-      "id": 3)
+ * @param {Object} props.result - 하나의 테스트 결과 목록
  * @returns
  */
 
@@ -39,10 +35,12 @@ const TestResultItem = ({ result }) => {
     },
   });
 
+  // 테스트 결과 삭제 함수
   const handleDelete = (id) => {
     deleteMutate(id);
   };
 
+  // 테스트 결과 공개 여부 변경 함수
   const handleChangeVisibility = (id, visibility) => {
     const data = {
       id: id,

@@ -1,10 +1,11 @@
 /**
+ * Input 컴포넌트
  *
- * @param {} props.value
- * @param {} props.onChange
- * @param {} props.placeholder
- * @param {} props.type
- * @param {} props.id
+ * @param {string} props.value - 상태 값
+ * @param {Function} props.onChange - 상태 업데이트 함수
+ * @param {string} props.placeholder - input placeholder
+ * @param {string} props.type - input의 타입 (기본값 text)
+ * @param {string} props.id
  * @returns
  */
 

@@ -26,8 +26,8 @@ export default function KakaoShare() {
           title: "MBTI 테스트",
           description: "당신의 MBTI를 확인해보세요!",
           link: {
-            mobileWebUrl: "https://developers.kakao.com",
-            webUrl: "https://developers.kakao.com",
+            mobileWebUrl: "https://mbti-test-ten-flax.vercel.app/result",
+            webUrl: "https://mbti-test-ten-flax.vercel.app/result",
           },
         },
         itemContent: {
@@ -37,8 +37,8 @@ export default function KakaoShare() {
           {
             title: "웹으로 이동",
             link: {
-              mobileWebUrl: "https://mbti-test-ten-flax.vercel.app/test",
-              webUrl: "https://mbti-test-ten-flax.vercel.app/test",
+              mobileWebUrl: "https://mbti-test-ten-flax.vercel.app/result",
+              webUrl: "https://mbti-test-ten-flax.vercel.app/result",
             },
           },
         ],
