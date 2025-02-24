@@ -2,13 +2,13 @@ import { useState } from "react";
 import InputForm from "../components/InputForm";
 import UserInput from "../components/UserInput";
 import { updateProfile } from "../api/auth";
-import useBearsStore from "../zustand/bearsStore";
 import toast from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
+import useUserStore from "../zustand/userStore";
 
 const Profile = () => {
   const [changedProfile, setChangedProfile] = useState("");
-  const { changeNickname } = useBearsStore((state) => state);
+  const changeNickname = useUserStore((state) => state.changeNickname);
 
   const { mutateAsync } = useMutation({
     mutationFn: updateProfile,
@@ -28,6 +28,8 @@ const Profile = () => {
     } catch (error) {
       console.error(error.message);
     }
+
+    setChangedProfile("");
   };
 
   return (

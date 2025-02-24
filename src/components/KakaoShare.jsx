@@ -44,9 +44,9 @@ export default function KakaoShare() {
   return (
     <button
       id="kakaotalk-sharing-btn"
-      className="bg-yellow hover:text-yellow my-3 w-full transform rounded-xl px-5 py-2 text-white transition duration-200 hover:scale-105 hover:bg-white"
+      className="my-3 w-full transform rounded-xl bg-yellow px-5 py-2 text-white transition duration-200 hover:scale-105 hover:bg-white hover:text-yellow"
     >
-      KakaoShare
+      카카오톡 공유하기
     </button>
   );
 }

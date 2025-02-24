@@ -2,17 +2,17 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../api/auth";
 import toast from "react-hot-toast";
-import useBearsStore from "../zustand/bearsStore";
 import InputForm from "../components/InputForm";
 import UserInput from "../components/UserInput";
 import { useMutation } from "@tanstack/react-query";
+import useUserStore from "../zustand/userStore";
 
 const Login = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  const { isLogin, changeNickname, setUserId } = useBearsStore(
-    (state) => state,
-  );
+  const isLogin = useUserStore((state) => state.isLogin);
+  const changeNickname = useUserStore((state) => state.changeNickname);
+  const setUserId = useUserStore((state) => state.setUserId);
 
   const navigate = useNavigate();
 
@@ -51,7 +51,7 @@ const Login = () => {
         type="password"
         placeholder="비밀번호"
       />
-      <div className="flex flex-row items-center">
+      <div className="flex items-center sm:flex-col md:flex-row lg:flex-row">
         <span className="mx-2 my-3">계정이 없으신가요?</span>
         <Link to="/signup" className="text-pink">
           회원가입

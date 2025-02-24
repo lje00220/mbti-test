@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { questions } from "../data/question";
+import toast from "react-hot-toast";
 
 const TestForm = ({ onSubmit }) => {
   const [answers, setAnswers] = useState(
@@ -14,13 +15,20 @@ const TestForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    for (let answer of answers) {
+      if (!answer.type) {
+        toast.error("체크되지 않은 항목이 있습니다!");
+        return;
+      }
+    }
     onSubmit(answers);
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 rounded-lg bg-[#ffffff] p-6"
+      className="w-full space-y-6 rounded-lg bg-[#ffffff] p-2 md:p-6 lg:p-6"
     >
       {questions.map((q, index) => (
         <div key={q.id} className="mb-6">

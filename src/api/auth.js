@@ -1,12 +1,12 @@
 import axios from "axios";
-import useBearsStore from "../zustand/bearsStore";
+import useUserStore from "../zustand/userStore";
 
 const instance = axios.create({
   baseURL: import.meta.env.VITE_NBC_SERVER,
 });
 
 instance.interceptors.request.use((config) => {
-  const token = useBearsStore.getState().accessToken;
+  const token = useUserStore.getState().accessToken;
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
