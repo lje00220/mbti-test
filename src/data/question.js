@@ -1,3 +1,7 @@
+/**
+ * MBTI 테스트 질문 데이터
+ */
+
 export const questions = [
   {
     id: 1,

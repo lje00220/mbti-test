@@ -4,14 +4,24 @@ import { instructions } from "../data/instruction";
 import InstructionBox from "../components/InstructionBox";
 import useUserStore from "../zustand/userStore";
 
+/**
+ * 홈 컴포넌트
+ *  - 테스트 페이지로 이동하는 기능
+ *  - 메인 페이지 역할
+ *
+ * @returns {JSX.Element}
+ */
+
 const Home = () => {
   const accessToken = useUserStore((state) => state.accessToken);
   const navigate = useNavigate();
 
+  // 테스트 페이지로 이동하는 이벤트 핸들러
   const handleMovePage = () => {
     if (accessToken) {
       navigate("/test");
     } else {
+      // 로그인이 되어있지 않다면 로그인 페이지로 이동
       toast.error(`로그인이 필요합니다! 
         로그인 페이지로 이동합니다.`);
       setTimeout(() => navigate("/login"), 500);
@@ -27,6 +37,7 @@ const Home = () => {
         자신의 성격 유형을 확인할 수 있도록 솔직하게 답변해 주세요.
       </p>
       <div className="mb-8 flex flex-col gap-5 overflow-hidden sm:flex-col md:flex-col lg:flex-row">
+        {/* MBTI 검사에 대한 설명을 출력하는 부분 */}
         {instructions.map((instruction) => (
           <InstructionBox key={instruction.id} {...instruction} />
         ))}

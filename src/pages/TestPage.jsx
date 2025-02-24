@@ -8,12 +8,20 @@ import toast from "react-hot-toast";
 import KakaoShare from "../components/KakaoShare";
 import useUserStore from "../zustand/userStore";
 
+/**
+ * 테스트 페이지
+ *  - mbti 검사 질문지와 자신의 테스트 결과를 출력하는 페이지
+ *
+ * @returns {JSX.Element}
+ */
+
 const TestPage = () => {
   const [result, setResult] = useState(null);
   const nickname = useUserStore((state) => state.nickname);
   const userId = useUserStore((state) => state.userId);
   const queryClient = useQueryClient();
 
+  // 테스트 제출 시 mbti 계산 후 서버로 결과 전송
   const handleTestSubmit = (answers) => {
     const mbtiResult = calculateMBTI(answers);
     setResult(mbtiResult);

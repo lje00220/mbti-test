@@ -1,5 +1,11 @@
 import { useEffect } from "react";
 
+/**
+ * 카카오톡 공유하기 버튼 컴포넌트
+ *
+ * @returns {JSX.Element}
+ */
+
 export default function KakaoShare() {
   useEffect(() => {
     kakaoButton();
@@ -19,7 +25,6 @@ export default function KakaoShare() {
         content: {
           title: "MBTI 테스트",
           description: "당신의 MBTI를 확인해보세요!",
-          // imageUrl: "",
           link: {
             mobileWebUrl: "https://developers.kakao.com",
             webUrl: "https://developers.kakao.com",
@@ -32,8 +37,8 @@ export default function KakaoShare() {
           {
             title: "웹으로 이동",
             link: {
-              mobileWebUrl: "https://developers.kakao.com",
-              webUrl: "https://developers.kakao.com",
+              mobileWebUrl: "https://mbti-test-ten-flax.vercel.app/test",
+              webUrl: "https://mbti-test-ten-flax.vercel.app/test",
             },
           },
         ],

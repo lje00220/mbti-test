@@ -1,3 +1,13 @@
+/**
+ *
+ * @param {} props.value
+ * @param {} props.onChange
+ * @param {} props.placeholder
+ * @param {} props.type
+ * @param {} props.id
+ * @returns
+ */
+
 const UserInput = ({ value, onChange, placeholder, type = "text", id }) => {
   return (
     <input

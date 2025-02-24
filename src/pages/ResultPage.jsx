@@ -5,6 +5,13 @@ import useUserStore from "../zustand/userStore";
 import { Link } from "react-router-dom";
 import { Loader } from "lucide-react";
 
+/**
+ * 테스트 결과 페이지
+ *  - 다른 사람들의 테스트 결과도 함께 확인 가능
+ *
+ * @returns {JSX.Element}
+ */
+
 const ResultPage = () => {
   const userId = useUserStore((state) => state.userId);
   const {
@@ -16,6 +23,7 @@ const ResultPage = () => {
     queryFn: getTestResults,
   });
 
+  // 데이터를 불러오는 중일 경우 Loader 이미지 출력
   if (isPending) {
     return (
       <div className="mt-1 flex h-screen items-center justify-center bg-bg_color text-3xl">
@@ -24,6 +32,7 @@ const ResultPage = () => {
     );
   }
 
+  // 데이터를 불러오는 중 에러 발생 시 에러 메세지 출력
   if (isError) {
     return (
       <div className="mt-1 flex h-screen items-center justify-center bg-bg_color text-3xl">
@@ -32,6 +41,7 @@ const ResultPage = () => {
     );
   }
 
+  // json-server에 테스트 결과가 없을 경우 출력하는 UI
   if (results.length === 0) {
     return (
       <div className="mt-1 flex h-screen w-full flex-col items-center bg-bg_color">
@@ -53,6 +63,7 @@ const ResultPage = () => {
         <h1 className="my-8 text-4xl font-semibold">모든 테스트 결과</h1>
         {results?.map(
           (result) =>
+            // 결과를 공개로 설정한 것과 로그인한 아이디와 동일한 테스트 결과들을 출력
             (result.visibility || result.userId === userId) && (
               <TestResultItem result={result} key={result.id} />
             ),
