@@ -20,7 +20,7 @@ const TestForm = ({ onSubmit }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 rounded-lg bg-[#ffffff] p-6"
+      className="w-full space-y-6 rounded-lg bg-[#ffffff] p-2 md:p-6 lg:p-6"
     >
       {questions.map((q, index) => (
         <div key={q.id} className="mb-6">

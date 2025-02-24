@@ -16,8 +16,8 @@ export default {
       blue: "oklch(0.623 0.214 259.815)",
     },
     screens: {
-      sm: { min: "350px", max: "819px" },
-      md: { min: "820px", max: "1079px" },
+      sm: { min: "300px", max: "799px" },
+      md: { min: "800px", max: "1079px" },
       lg: { min: "1080px" },
     },
     extend: {},

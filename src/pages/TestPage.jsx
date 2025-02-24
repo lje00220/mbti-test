@@ -39,14 +39,16 @@ const TestPage = () => {
 
   return (
     <div className="mt-1 flex h-screen w-full flex-col items-center justify-center bg-[#f3f4f6]">
-      <div className="my-5 w-full max-w-lg overflow-scroll rounded-lg bg-[#ffffff] p-8">
+      <div className="my-5 w-11/12 overflow-scroll rounded-lg bg-[#ffffff] p-3 sm:w-11/12 md:w-3/5 lg:w-2/5">
         {!result ? (
           <>
-            <h1 className="mb-6 text-3xl font-bold text-slate">MBTI 테스트</h1>
+            <h1 className="my-6 ml-5 text-3xl font-bold text-slate">
+              MBTI 테스트
+            </h1>
             <TestForm onSubmit={handleTestSubmit} />
           </>
         ) : (
-          <div className="">
+          <div className="p-4">
             <h1 className="mb-6 text-3xl font-bold text-slate">
               테스트 결과: {result}
             </h1>

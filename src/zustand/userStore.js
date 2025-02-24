@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-const useBearsStore = create(
+const useUserStore = create(
   persist(
     (set) => ({
       accessToken: null,
@@ -19,4 +19,4 @@ const useBearsStore = create(
   ),
 );
 
-export default useBearsStore;
+export default useUserStore;
