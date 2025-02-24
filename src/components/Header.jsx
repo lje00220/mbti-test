@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <div>
       <header className="flex items-center justify-between bg-bg_color p-5 shadow-md">
-        <Link to="/">
+        <Link to="/" onClick={() => setIsOpen(false)}>
           <p className="headerText mx-4 text-xl">홈</p>
         </Link>
         <nav className="hidden gap-5 md:flex lg:flex">
