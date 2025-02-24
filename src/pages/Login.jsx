@@ -8,13 +8,21 @@ import { useMutation } from "@tanstack/react-query";
 import useUserStore from "../zustand/userStore";
 
 const Login = () => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
   const isLogin = useUserStore((state) => state.isLogin);
   const changeNickname = useUserStore((state) => state.changeNickname);
   const setUserId = useUserStore((state) => state.setUserId);
-
   const navigate = useNavigate();
+  const [user, setUser] = useState({
+    id: "",
+    password: "",
+  });
+
+  const handleChange = (key, value) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      [key]: value,
+    }));
+  };
 
   const { mutateAsync } = useMutation({
     mutationFn: login,
@@ -23,10 +31,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const data = await mutateAsync({
-        id,
-        password,
-      });
+      const data = await mutateAsync(user);
 
       if (data.success) {
         toast.success("로그인 되었습니다!");
@@ -38,16 +43,21 @@ const Login = () => {
       }
     } catch (error) {
       toast.error("입력한 아이디가 존재하지 않거나 비밀번호가 잘못되었습니다.");
+      setUser({ id: "", password: "" });
       console.error(error.message);
     }
   };
 
   return (
     <InputForm type="로그인" onSubmit={handleLogin}>
-      <UserInput value={id} setValue={setId} placeholder="아이디" />
       <UserInput
-        value={password}
-        setValue={setPassword}
+        value={user.id}
+        onChange={(value) => handleChange("id", value)}
+        placeholder="아이디"
+      />
+      <UserInput
+        value={user.password}
+        onChange={(value) => handleChange("password", value)}
         type="password"
         placeholder="비밀번호"
       />
