@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import TestForm from "../components/TestForm";
 import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { createTestResult } from "../api/testResults";
-import useBearsStore from "../zustand/bearsStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import KakaoShare from "../components/KakaoShare";
+import useUserStore from "../zustand/userStore";
 
 const TestPage = () => {
   const [result, setResult] = useState(null);
-  const { nickname, userId } = useBearsStore((state) => state);
+  const nickname = useUserStore((state) => state.nickname);
+  const userId = useUserStore((state) => state.userId);
   const queryClient = useQueryClient();
 
   const handleTestSubmit = (answers) => {

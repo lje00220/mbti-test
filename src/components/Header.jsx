@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import useBearsStore from "../zustand/bearsStore";
+import useUserStore from "../zustand/userStore";
 
 const Header = () => {
-  const { accessToken, isLogout, nickname } = useBearsStore((state) => state);
+  const accessToken = useUserStore((state) => state.accessToken);
+  const isLogout = useUserStore((state) => state.isLogout);
+  const nickname = useUserStore((state) => state.nickname);
   const navigate = useNavigate();
 
   const handleLogout = () => {

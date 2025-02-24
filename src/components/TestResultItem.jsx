@@ -4,11 +4,11 @@ import {
   updateTestResultVisibility,
 } from "../api/testResults";
 import { mbtiDescriptions } from "../utils/mbtiCalculator";
-import useBearsStore from "../zustand/bearsStore";
+import useUserStore from "../zustand/userStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const TestResultItem = ({ result }) => {
-  const { userId } = useBearsStore((state) => state);
+  const userId = useUserStore((state) => state.userId);
   const queryClient = useQueryClient();
 
   const { mutate: deleteMutate } = useMutation({

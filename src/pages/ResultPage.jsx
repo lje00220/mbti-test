@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getTestResults } from "../api/testResults";
-import useBearsStore from "../zustand/bearsStore";
 import TestResultItem from "../components/TestResultItem";
+import useUserStore from "../zustand/userStore";
 
 const ResultPage = () => {
-  const { userId } = useBearsStore((state) => state);
+  const userId = useUserStore((state) => state.userId);
   const {
     data: results,
     isPending,

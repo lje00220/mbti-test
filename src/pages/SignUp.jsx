@@ -62,7 +62,7 @@ const SignUp = () => {
         placeholder="비밀번호"
       />
       <UserInput value={nickname} setValue={setNickname} placeholder="닉네임" />
-      <div className="flex flex-row items-center">
+      <div className="flex items-center sm:flex-col md:flex-row lg:flex-row">
         <span className="mx-2 my-3">이미 계정이 있으신가요?</span>
         <Link to="/login" className="text-pink">
           로그인

@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import useBearsStore from "../zustand/bearsStore";
 import { instructions } from "../data/instruction";
 import InstructionBox from "../components/InstructionBox";
+import useUserStore from "../zustand/userStore";
 
 const Home = () => {
-  const { accessToken } = useBearsStore((state) => state);
+  const accessToken = useUserStore((state) => state.accessToken);
   const navigate = useNavigate();
 
   const handleMovePage = () => {
@@ -19,14 +19,14 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-bg_color mt-1 flex h-screen flex-col items-center justify-start p-5">
+    <div className="mt-1 flex flex-col items-center justify-start bg-bg_color p-5 sm:max-h-max md:max-h-max lg:h-screen">
       <h1 className="mb-5 mt-5 text-5xl font-bold text-black">
         무료 성격 테스트
       </h1>
       <p className="my-5 text-lg text-black">
         자신의 성격 유형을 확인할 수 있도록 솔직하게 답변해 주세요.
       </p>
-      <div className="mb-8 flex flex-row gap-5">
+      <div className="mb-8 flex flex-col gap-5 overflow-hidden sm:flex-col md:flex-col lg:flex-row">
         {instructions.map((instruction) => (
           <InstructionBox key={instruction.id} {...instruction} />
         ))}
