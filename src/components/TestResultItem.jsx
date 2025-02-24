@@ -7,6 +7,18 @@ import { mbtiDescriptions } from "../utils/mbtiCalculator";
 import useUserStore from "../zustand/userStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
+/**
+ *
+ * @param {Object} props.result - 하나의 테스트 결과 목록 (      
+ *     "nickname": "말짱도루묵",
+      "result": "ISTP",
+      "visibility": true,
+      "date": "2025. 2. 24.",
+      "userId": "tset111",
+      "id": 3)
+ * @returns
+ */
+
 const TestResultItem = ({ result }) => {
   const userId = useUserStore((state) => state.userId);
   const queryClient = useQueryClient();
@@ -40,8 +52,8 @@ const TestResultItem = ({ result }) => {
   };
 
   return (
-    <div className="mb-5 w-2/3 rounded-md bg-slate p-5 sm:w-11/12 md:w-4/5">
-      <div className="flex flex-row justify-between border-b-2 pb-2">
+    <div className="mb-5 w-2/3 rounded-md bg-slate p-5 shadow-md shadow-grey sm:w-11/12 md:w-4/5">
+      <div className="flex flex-row justify-between border-b-2 border-y-grey pb-2">
         <p className="text-xl text-white">{result.nickname}</p>
         <p className="text-grey_font">{result.date}</p>
       </div>

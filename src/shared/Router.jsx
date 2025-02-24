@@ -9,11 +9,19 @@ import TestPage from "../pages/TestPage";
 import ResultPage from "../pages/ResultPage";
 import useUserStore from "../zustand/userStore";
 
+/**
+ * 라우터 컴포넌트
+ *
+ * @returns {JSX.Element}
+ */
+
+// 로그인한 회원만 접근 가능 (프로필 수정, 테스트, 테스트 결과 페이지)
 const PrivateRoute = ({ element: Element }) => {
   const { accessToken } = useUserStore((state) => state);
   return accessToken ? <Element /> : <Navigate to="/" />;
 };
 
+// 비회원도 접근 가능 (홈, 로그인, 회원가입 페이지)
 const PublicRoute = ({ element: Element }) => {
   const { accessToken } = useUserStore((state) => state);
   return !accessToken ? <Element /> : <Navigate to="/" />;

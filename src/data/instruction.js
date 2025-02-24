@@ -1,3 +1,7 @@
+/**
+ * MBTI 검사에 대한 설명이 들어있는 배열
+ */
+
 export const instructions = [
   {
     id: 1,

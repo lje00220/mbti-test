@@ -1,3 +1,12 @@
+/**
+ *  입력 폼 컴포넌트 (로그인, 회원가입, 프로필 수정 페이지에서 사용)
+ *
+ * @param {JSX.Element} props.children
+ * @param {string} props.type - 입력하는 페이지 이름 (회원가입, 로그인, 프로필 수정)
+ * @param {Function} props.onSubmit - 폼을 저장하는 이벤트 핸들러
+ * @returns {JSX.Element}
+ */
+
 const InputForm = ({ children, type, onSubmit }) => {
   return (
     <div className="mt-1 flex h-screen w-full flex-col items-center bg-bg_color">
