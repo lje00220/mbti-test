@@ -7,6 +7,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import KakaoShare from "../components/KakaoShare";
 import useUserStore from "../zustand/userStore";
+import { getFormattedDate } from "../utils/formatDate";
 
 /**
  * 테스트 페이지
@@ -30,7 +31,7 @@ const TestPage = () => {
       nickname: nickname,
       result: mbtiResult,
       visibility: true,
-      date: new Date().toLocaleDateString("ko-KR"),
+      date: getFormattedDate(new Date()),
       userId: userId,
     };
 
