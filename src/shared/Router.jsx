@@ -15,13 +15,13 @@ import useUserStore from "../zustand/userStore";
  * @returns {JSX.Element}
  */
 
-// 로그인한 회원만 접근 가능 (프로필 수정, 테스트, 테스트 결과 페이지)
+// 로그인한 회원만 접근 가능 (프로필 수정, 테스트)
 const PrivateRoute = ({ element: Element }) => {
   const { accessToken } = useUserStore((state) => state);
   return accessToken ? <Element /> : <Navigate to="/" />;
 };
 
-// 비회원도 접근 가능 (홈, 로그인, 회원가입 페이지)
+// 비회원 접근 가능 (홈, 로그인, 회원가입, 테스트 결과 페이지)
 const PublicRoute = ({ element: Element, restricted = true }) => {
   const { accessToken } = useUserStore((state) => state);
   return restricted && accessToken ? <Navigate to="/" /> : <Element />;

@@ -45,7 +45,7 @@ const Profile = () => {
       <label htmlFor="nickname">닉네임</label>
       <UserInput
         value={changedProfile}
-        setValue={setChangedProfile}
+        onChange={setChangedProfile}
         placeholder="닉네임"
         id="nickname"
       />
